@@ -27,21 +27,21 @@ const UserDashboard = () => {
   const [viewMode, setViewMode] = useState('grid');
 
   // User profile data
-  const user = {
-    name: "Sarah Johnson",
-    email: "sarah.johnson@email.com",
-    phone: "+1 (555) 123-4567",
-    location: "San Francisco, CA",
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop",
-    coverImage: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1200&h=300&fit=crop",
-    joinedDate: "March 2023",
-    rating: 4.8,
-    totalSwaps: 23,
-    totalEarnings: "$1,250",
-    activeListings: 8,
-    completedPurchases: 15,
-    bio: "Fashion enthusiast who loves sustainable style. Always looking for unique pieces to add to my wardrobe!"
-  };
+          const user = {
+            name: "Sarah Johnson",
+            email: "sarah.johnson@email.com",
+            phone: "+1 (555) 123-4567",
+            location: "San Francisco, CA",
+            avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop",
+            coverImage: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1200&h=300&fit=crop",
+            joinedDate: "March 2023",
+            rating: 4.8,
+            totalSwaps: 23,
+            totalEarnings: "$1,250",
+            activeListings: 8,
+            completedPurchases: 15,
+            bio: "Fashion enthusiast who loves sustainable style. Always looking for unique pieces to add to my wardrobe!"
+          };
 
   // User's listings data
   const userListings = [
@@ -312,98 +312,94 @@ const UserDashboard = () => {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* User Profile Section */}
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-          {/* Cover Image */}
-          <div className="relative h-32 md:h-48">
-            <img
-              src={user.coverImage}
-              alt="Cover"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-          </div>
-          
-          {/* Profile Content */}
-          <div className="relative px-6 pb-6">
-            <div className="flex flex-col md:flex-row items-start md:items-end space-y-4 md:space-y-0 md:space-x-6 -mt-16 md:-mt-20">
-              {/* Profile Picture */}
-              <div className="relative flex-shrink-0">
-                <img
-                  src={user.avatar}
-                  alt={user.name}
-                  className="w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover"
-                />
-                <button className="absolute bottom-2 right-2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-md">
-                  <Edit3 className="h-4 w-4" />
-                </button>
-              </div>
-              
-              {/* User Info */}
-              <div className="flex-1 w-full">
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-                  <div className="mb-4 lg:mb-0">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{user.name}</h2>
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-1 sm:space-y-0">
-                      <div className="flex items-center">
-                        <MapPin className="h-4 w-4 text-gray-500 mr-1" />
-                        <span className="text-gray-600">{user.location}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Calendar className="h-4 w-4 text-gray-500 mr-1" />
-                        <span className="text-gray-600">Joined {user.joinedDate}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
-                    <StarRating rating={user.rating} />
-                    <button className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 shadow-sm">
-                      Edit Profile
-                    </button>
-                  </div>
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+
+    <div className="relative h-32 md:h-48">
+      <img
+        src={user.coverImage}
+        alt="Cover"
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+    </div>
+
+    <div className="relative px-6 pb-6">
+      <div className="flex flex-col md:flex-row items-start md:items-end space-y-4 md:space-y-0 md:space-x-6 mt-4 md:mt-6">
+
+        <div className="relative flex-shrink-0">
+          <img
+            src={user.avatar}
+            alt={user.name}
+            className="w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover"
+          />
+          <button className="absolute bottom-2 right-2 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-md">
+            <Edit3 className="h-4 w-4" />
+          </button>
+        </div>
+
+        <div className="flex-1 w-full">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+            <div className="mb-4 lg:mb-0">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{user.name}</h2>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-1 sm:space-y-0">
+                <div className="flex items-center">
+                  <MapPin className="h-4 w-4 text-gray-500 mr-1" />
+                  <span className="text-gray-600">{user.location}</span>
                 </div>
-                
-                {/* User Stats */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-6 p-4 bg-gray-50 rounded-xl">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-blue-600 mb-1">{user.totalSwaps}</div>
-                    <div className="text-sm text-gray-600">Total Swaps</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600 mb-1">{user.totalEarnings}</div>
-                    <div className="text-sm text-gray-600">Total Earnings</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-purple-600 mb-1">{user.activeListings}</div>
-                    <div className="text-sm text-gray-600">Active Listings</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-orange-600 mb-1">{user.completedPurchases}</div>
-                    <div className="text-sm text-gray-600">Purchases</div>
-                  </div>
-                </div>
-                
-                {/* User Bio */}
-                <div className="mt-4">
-                  <p className="text-gray-600 leading-relaxed">{user.bio}</p>
-                </div>
-                
-                {/* Contact Info */}
-                <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 mt-4 text-sm text-gray-600">
-                  <div className="flex items-center">
-                    <Mail className="h-4 w-4 mr-2 text-gray-500" />
-                    <span>{user.email}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Phone className="h-4 w-4 mr-2 text-gray-500" />
-                    <span>{user.phone}</span>
-                  </div>
+                <div className="flex items-center">
+                  <Calendar className="h-4 w-4 text-gray-500 mr-1" />
+                  <span className="text-gray-600">Joined {user.joinedDate}</span>
                 </div>
               </div>
             </div>
+            <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+              <StarRating rating={user.rating} />
+              <button className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 shadow-sm">
+                Edit Profile
+              </button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-6 p-4 bg-gray-50 rounded-xl">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-blue-600 mb-1">{user.totalSwaps}</div>
+              <div className="text-sm text-gray-600">Total Swaps</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-green-600 mb-1">{user.totalEarnings}</div>
+              <div className="text-sm text-gray-600">Total Earnings</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-purple-600 mb-1">{user.activeListings}</div>
+              <div className="text-sm text-gray-600">Active Listings</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-orange-600 mb-1">{user.completedPurchases}</div>
+              <div className="text-sm text-gray-600">Purchases</div>
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <p className="text-gray-600 leading-relaxed">{user.bio}</p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 mt-4 text-sm text-gray-600">
+            <div className="flex items-center">
+              <Mail className="h-4 w-4 mr-2 text-gray-500" />
+              <span>{user.email}</span>
+            </div>
+            <div className="flex items-center">
+              <Phone className="h-4 w-4 mr-2 text-gray-500" />
+              <span>{user.phone}</span>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+
 
         {/* Tabs Navigation */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0 mb-8">
