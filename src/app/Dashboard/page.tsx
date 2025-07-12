@@ -6,6 +6,7 @@ const ReWearLanding = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const router = useRouter();
+  
   // Featured clothing items carousel
   const featuredImages = [
     {
@@ -177,15 +178,18 @@ const ReWearLanding = () => {
           
           {/* Call-to-Action Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-            <button className="bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-green-700 hover:to-green-800 transition-all duration-200 transform hover:scale-105 shadow-lg">
-              Start Swapping
-            </button>
-            <button className="bg-white text-green-600 border-2 border-green-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-50 transition-all duration-200 transform hover:scale-105 shadow-lg">
+            <button 
+            onClick={() => router.push('/ItemListing')}
+            className="bg-white text-green-600 border-2 border-green-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-50 transition-all duration-200 transform hover:scale-105 shadow-lg">
               Browse Items
             </button>
-            <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-105 shadow-lg">
-              List an Item
-            </button>
+            <button
+            onClick={() => router.push('Item')}
+       // ⬅️ navigation handler
+      className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-105 shadow-lg"
+    >
+      List an Item
+    </button>
           </div>
 
           {/* Impact Stats */}

@@ -1,6 +1,4 @@
-// src/app/page.tsx
-import AuthInterface from './Auth/AuthInterface';
-
+import HomePage from './LandingPage/page';
 export default function Home() {
-  return <AuthInterface />;
+  return <HomePage />;
 }
