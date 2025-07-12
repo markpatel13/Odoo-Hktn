@@ -1,95 +1,110 @@
+"use client"
 import React, { useState } from 'react';
-import { Search, ShoppingCart, Heart, Star, ChevronLeft, ChevronRight, User, Menu } from 'lucide-react';
-
-const LandingPage = () => {
+import { Search, Heart, Star, ChevronLeft, ChevronRight, User, Menu, Shirt, Recycle, Users, TrendingUp, Award, ArrowRight, ShoppingCart } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+const ReWearLanding = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  // Sample data
+  const router = useRouter();
+  // Featured clothing items carousel
   const featuredImages = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop',
-      title: 'Summer Sale',
-      subtitle: 'Up to 50% off on selected items'
+      image: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=400&fit=crop',
+      title: 'Sustainable Fashion',
+      subtitle: 'Give your clothes a second life through community swaps'
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop',
-      title: 'New Arrivals',
-      subtitle: 'Fresh collection just for you'
+      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop',
+      title: 'New Arrivals Daily',
+      subtitle: 'Fresh clothing items from community members'
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=800&h=400&fit=crop',
-      title: 'Premium Quality',
-      subtitle: 'Handpicked products for you'
+      image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&h=400&fit=crop',
+      title: 'Eco-Friendly Exchange',
+      subtitle: 'Reduce textile waste while refreshing your wardrobe'
     }
   ];
 
+  // Clothing categories
   const categories = [
-    { id: 1, name: 'Electronics', icon: '📱', color: 'bg-blue-500' },
-    { id: 2, name: 'Fashion', icon: '👗', color: 'bg-pink-500' },
-    { id: 3, name: 'Home & Garden', icon: '🏠', color: 'bg-green-500' },
-    { id: 4, name: 'Sports', icon: '⚽', color: 'bg-orange-500' },
-    { id: 5, name: 'Books', icon: '📚', color: 'bg-purple-500' },
-    { id: 6, name: 'Beauty', icon: '💄', color: 'bg-red-500' }
+    { id: 1, name: 'Tops', icon: '👕', color: 'bg-blue-500' },
+    { id: 2, name: 'Dresses', icon: '👗', color: 'bg-pink-500' },
+    { id: 3, name: 'Pants', icon: '👖', color: 'bg-indigo-500' },
+    { id: 4, name: 'Jackets', icon: '🧥', color: 'bg-green-500' },
+    { id: 5, name: 'Shoes', icon: '👠', color: 'bg-purple-500' },
+    { id: 6, name: 'Accessories', icon: '👜', color: 'bg-orange-500' }
   ];
 
-  const products = [
+  // Featured clothing items
+  const featuredItems = [
     {
       id: 1,
-      name: 'Wireless Headphones',
-      price: '$99.99',
-      originalPrice: '$149.99',
-      rating: 4.5,
-      image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop',
-      discount: '33% OFF'
+      name: 'Vintage Denim Jacket',
+      points: 25,
+      condition: 'Like New',
+      size: 'M',
+      rating: 4.8,
+      image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&h=300&fit=crop',
+      uploader: 'Sarah M.',
+      category: 'Jackets'
     },
     {
       id: 2,
-      name: 'Smart Watch',
-      price: '$199.99',
-      originalPrice: '$299.99',
-      rating: 4.8,
-      image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop',
-      discount: '33% OFF'
+      name: 'Designer Floral Dress',
+      points: 35,
+      condition: 'Excellent',
+      size: 'S',
+      rating: 4.9,
+      image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300&h=300&fit=crop',
+      uploader: 'Emma K.',
+      category: 'Dresses'
     },
     {
       id: 3,
-      name: 'Laptop Stand',
-      price: '$49.99',
-      originalPrice: '$79.99',
-      rating: 4.3,
-      image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300&h=300&fit=crop',
-      discount: '38% OFF'
+      name: 'Casual Cotton Hoodie',
+      points: 20,
+      condition: 'Good',
+      size: 'L',
+      rating: 4.6,
+      image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300&h=300&fit=crop',
+      uploader: 'Mike J.',
+      category: 'Tops'
     },
     {
       id: 4,
-      name: 'Smartphone',
-      price: '$699.99',
-      originalPrice: '$899.99',
-      rating: 4.6,
-      image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=300&fit=crop',
-      discount: '22% OFF'
+      name: 'Professional Blazer',
+      points: 30,
+      condition: 'Like New',
+      size: 'M',
+      rating: 4.7,
+      image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=300&fit=crop',
+      uploader: 'Lisa R.',
+      category: 'Jackets'
     },
     {
       id: 5,
-      name: 'Coffee Maker',
-      price: '$129.99',
-      originalPrice: '$179.99',
-      rating: 4.4,
-      image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=300&h=300&fit=crop',
-      discount: '28% OFF'
+      name: 'Leather Ankle Boots',
+      points: 40,
+      condition: 'Excellent',
+      size: '8',
+      rating: 4.8,
+      image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=300&h=300&fit=crop',
+      uploader: 'Anna T.',
+      category: 'Shoes'
     },
     {
       id: 6,
-      name: 'Running Shoes',
-      price: '$89.99',
-      originalPrice: '$129.99',
-      rating: 4.7,
-      image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=300&fit=crop',
-      discount: '31% OFF'
+      name: 'Sustainable Tote Bag',
+      points: 15,
+      condition: 'Good',
+      size: 'One Size',
+      rating: 4.5,
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop',
+      uploader: 'Grace W.',
+      category: 'Accessories'
     }
   ];
 
@@ -118,15 +133,16 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  ShopHub
+              <div className="flex-shrink-0 flex items-center">
+                <Recycle className="h-8 w-8 text-green-600 mr-2" />
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                  ReWear
                 </h1>
               </div>
             </div>
@@ -137,33 +153,76 @@ const LandingPage = () => {
               <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
                 <ShoppingCart className="h-5 w-5 text-gray-600" />
               </button>
-              <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                <User className="h-5 w-5 text-gray-600" />
-              </button>
+              <button
+      onClick={() => router.push('/user')}
+      className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+    >
+      <User className="h-5 w-5 text-gray-600" />
+    </button>
             </div>
           </div>
         </div>
       </header>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Hero Section */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+            Sustainable Fashion
+            <span className="block text-green-600">Through Community</span>
+          </h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Join ReWear's community clothing exchange. Swap, share, and discover pre-loved fashion while reducing textile waste and refreshing your wardrobe sustainably.
+          </p>
+          
+          {/* Call-to-Action Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+            <button className="bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-green-700 hover:to-green-800 transition-all duration-200 transform hover:scale-105 shadow-lg">
+              Start Swapping
+            </button>
+            <button className="bg-white text-green-600 border-2 border-green-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-50 transition-all duration-200 transform hover:scale-105 shadow-lg">
+              Browse Items
+            </button>
+            <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-105 shadow-lg">
+              List an Item
+            </button>
+          </div>
+
+          {/* Impact Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-200">
+              <div className="text-3xl font-bold text-green-600 mb-2">50k+</div>
+              <div className="text-gray-600">Items Exchanged</div>
+            </div>
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-200">
+              <div className="text-3xl font-bold text-blue-600 mb-2">25k+</div>
+              <div className="text-gray-600">Active Members</div>
+            </div>
+            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-200">
+              <div className="text-3xl font-bold text-purple-600 mb-2">200%</div>
+              <div className="text-gray-600">Waste Reduction</div>
+            </div>
+          </div>
+        </div>
+
         {/* Search Bar */}
-        <div className="mb-8">
+        <div className="mb-12">
           <div className="relative max-w-2xl mx-auto">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white shadow-lg text-lg"
-              placeholder="Search for products, brands, and more..."
+              className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 bg-white shadow-lg text-lg"
+              placeholder="Search for clothing items, brands, sizes..."
             />
           </div>
         </div>
 
-        {/* Featured Images Carousel */}
+        {/* Featured Items Carousel */}
         <div className="mb-12">
           <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-black/20 z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/20 z-10"></div>
             <img
               src={featuredImages[currentImageIndex].image}
               alt={featuredImages[currentImageIndex].title}
@@ -227,48 +286,85 @@ const LandingPage = () => {
           </div>
         </div>
 
-        {/* Product Listings */}
+        {/* Featured Items */}
         <div className="mb-12">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">Featured Products</h2>
-            <button className="text-blue-600 hover:text-blue-500 font-medium transition-colors">
+            <h2 className="text-2xl font-bold text-gray-900">Featured Items</h2>
+            <button className="flex items-center text-green-600 hover:text-green-500 font-medium transition-colors">
               View All
+              <ArrowRight className="ml-1 h-4 w-4" />
             </button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => (
+            {featuredItems.map((item) => (
               <div
-                key={product.id}
+                key={item.id}
                 className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 overflow-hidden"
               >
                 <div className="relative">
                   <img
-                    src={product.image}
-                    alt={product.name}
+                    src={item.image}
+                    alt={item.name}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-lg text-xs font-medium">
-                    {product.discount}
+                  <div className="absolute top-3 left-3 bg-green-500 text-white px-2 py-1 rounded-lg text-xs font-medium">
+                    {item.condition}
                   </div>
-                  <button className="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-200 opacity-0 group-hover:opacity-100">
+                  <div className="absolute top-3 right-3 bg-blue-500 text-white px-2 py-1 rounded-lg text-xs font-medium">
+                    {item.points} pts
+                  </div>
+                  <button className="absolute bottom-3 right-3 p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-200 opacity-0 group-hover:opacity-100">
                     <Heart className="h-4 w-4 text-gray-600" />
                   </button>
                 </div>
                 <div className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{product.name}</h3>
-                  <StarRating rating={product.rating} />
-                  <div className="flex items-center justify-between mt-3">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{item.name}</h3>
+                  <p className="text-sm text-gray-600 mb-2">Size: {item.size} • by {item.uploader}</p>
+                  <StarRating rating={item.rating} />
+                  <div className="flex items-center justify-between mt-4">
                     <div className="flex items-center space-x-2">
-                      <span className="text-xl font-bold text-gray-900">{product.price}</span>
-                      <span className="text-sm text-gray-500 line-through">{product.originalPrice}</span>
+                      <span className="text-lg font-bold text-green-600">{item.points} Points</span>
                     </div>
-                    <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-105">
-                      Add to Cart
-                    </button>
+                    <div className="flex space-x-2">
+                      <button className="bg-gradient-to-r from-green-600 to-green-700 text-white px-3 py-1 rounded-lg text-sm font-medium hover:from-green-700 hover:to-green-800 transition-all duration-200">
+                        Swap
+                      </button>
+                      <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-3 py-1 rounded-lg text-sm font-medium hover:from-blue-700 hover:to-blue-800 transition-all duration-200">
+                        Redeem
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* How It Works Section */}
+        <div className="mb-12 bg-white rounded-2xl p-8 shadow-lg">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">How ReWear Works</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shirt className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">List Your Items</h3>
+              <p className="text-gray-600">Upload photos and details of clothes you no longer wear</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Connect & Swap</h3>
+              <p className="text-gray-600">Browse community items and propose swaps or use points</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="h-8 w-8 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Earn & Redeem</h3>
+              <p className="text-gray-600">Earn points for successful swaps and redeem for new items</p>
+            </div>
           </div>
         </div>
       </div>
@@ -276,4 +372,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default ReWearLanding;
