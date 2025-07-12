@@ -76,7 +76,7 @@ const ItemListingScreen = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
 
-<Link href="/dashboard">
+<Link href="/Dashboard">
   <div className="flex-shrink-0 flex items-center cursor-pointer">
     <Recycle className="h-8 w-8 text-green-600 mr-2" />
     <h1 className="text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">

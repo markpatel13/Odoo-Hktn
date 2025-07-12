@@ -184,7 +184,7 @@ const ReWearLanding = () => {
               Browse Items
             </button>
             <button
-            onClick={() => router.push('Item')}
+            onClick={() => router.push('item')}
        // ⬅️ navigation handler
       className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-105 shadow-lg"
     >

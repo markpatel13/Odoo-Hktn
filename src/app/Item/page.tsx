@@ -150,7 +150,7 @@ const ProductDetailPage = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <button className="mr-4 p-2 rounded-full hover:bg-gray-100 transition-colors">
-<Link href="/dashboard" className="mr-4 p-2 rounded-full hover:bg-gray-100 transition-colors inline-block">
+<Link href="/Dashboard" className="mr-4 p-2 rounded-full hover:bg-gray-100 transition-colors inline-block">
   <ArrowLeft className="h-5 w-5 text-gray-600" />
 </Link>
               </button>
