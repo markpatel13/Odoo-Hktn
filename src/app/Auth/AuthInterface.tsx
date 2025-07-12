@@ -47,7 +47,7 @@ const AuthInterface = () => {
       setError(`Login failed: ${error.message}`);
     } else {
       alert('Login successful! Redirecting...');
-      router.push('/dashboard');
+      router.push('/Dashboard');
     }
   };
 
@@ -73,7 +73,7 @@ const AuthInterface = () => {
       setError(`Registration failed: ${error.message}`);
     } else {
       alert('Registration successful! Check your inbox for confirmation.');
-      router.push('/dashboard');
+      router.push('/Dashboard');
     }
   };
 
