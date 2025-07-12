@@ -1,2 +1,2 @@
 # Odoo-Hktn
-Odoo project repo
+Odoo project repo:-ReWear – Community Clothing Exchange
